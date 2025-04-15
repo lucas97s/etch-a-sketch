@@ -7,7 +7,7 @@ titleContainer.textContent = "Lets Etch a Sketch" ;
 
 const button = document.createElement("button") ; 
 button.setAttribute("class","button") ; 
-button.textContent = "Change the number of tiles" ; 
+button.textContent = "Choose Number of Sides Here !" ; 
 
 const blockContainer = document.createElement("div") ; 
 blockContainer.setAttribute("class", "main-block") ; 
@@ -16,9 +16,13 @@ body.appendChild(titleContainer) ;
 body.appendChild(button) ; 
 body.appendChild(blockContainer) ; 
 
+function getRandominRange (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min ; 
+}
 
 
-let numberOfBlockPerSide = 10 ; 
+
+let numberOfBlockPerSide = 16 ; 
 let numberOfBlocks = numberOfBlockPerSide*numberOfBlockPerSide ; 
 let percentageToSet = ((100)/numberOfBlockPerSide) + "%" ; 
 console.log(percentageToSet) ; 
@@ -37,6 +41,24 @@ let blockElements = document.querySelectorAll(".block") ;
 blockElements.forEach( block => { 
     block.style.width = percentageToSet ; 
     block.style.aspectRatio = "1/1" ; 
+    block.addEventListener("mouseenter", () => {
+    
+        let opacity = parseFloat(window.getComputedStyle(block).opacity) ;
+        let redValue = getRandominRange(1,256); 
+        let greenValue = getRandominRange(1,256);
+        let blueValue = getRandominRange(1,256);
+        
+        console.log(opacity); 
+        if (opacity>1) {
+            opacity = 1 ; 
+        } else if (opacity>= 0 && opacity <= 1) {
+            opacity += 0.1 ; 
+        }
+
+        block.style.opacity = opacity ; 
+        block.style.backgroundColor = `rgb(${redValue},${greenValue}, ${blueValue})`;
+
+    })
 });
 
 // Using prompt to get the number of blocks 
@@ -62,8 +84,34 @@ button.addEventListener("click", () => {
     blockElements.forEach( block => { 
         block.style.width = percentageToSet ; 
         block.style.aspectRatio = "1/1" ; 
+        block.addEventListener("mouseenter", () => {
+            
+            let opacity = parseFloat(window.getComputedStyle(block).opacity) ;
+            let redValue = getRandominRange(1,256); 
+            let greenValue = getRandominRange(1,256);
+            let blueValue = getRandominRange(1,256);
+            
+            console.log(opacity); 
+            if (opacity>1) {
+                opacity = 1 ; 
+            } else if (opacity>= 0 && opacity <= 1) {
+                opacity += 0.1 ; 
+            }
+    
+            block.style.opacity = opacity ; 
+            block.style.backgroundColor = `rgb(${redValue},${greenValue}, ${blueValue})`;
+        })
+
     });
 })
+
+// Using mouse click to change colours of the blocks 
+
+console.log(blockElements); 
+
+
+
+
 
 
 

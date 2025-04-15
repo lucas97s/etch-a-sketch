@@ -7,6 +7,7 @@ body {
     margin: 0 ; 
     gap : 20px ; 
     padding : 20px ; 
+    background-color: white;
 }
 
 
@@ -16,13 +17,38 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width : 300px ; 
+    width : 500px ; 
     aspect-ratio: 1/1 ;
+    border : 5px solid black ; 
+    border-radius: 5px;
 }
 
 .block {
-    background-color: aqua ;
+
     position : relative ; 
-    border : 0.1px solid black ; 
-    box-sizing:border-box ; 
+    box-sizing:border-box ;
+    opacity : 0 ;  
+}
+
+.button { 
+    font-family: sans-serif;
+    border : 5px solid grey ; 
+    border-radius : 5px ; 
+    font-weight: 900 ;
+    background-color: black ;
+    color: white ;
+    padding: 10px ;
+    
+}
+
+.title-container { 
+    font-size : 30px ; 
+    font-family: sans-serif;
+    border : 5px solid black ; 
+    border-radius : 5px ; 
+    font-weight: 900 ;
+    background-color: grey ;
+    color: white ;
+    padding: 20px ;
+
 }
