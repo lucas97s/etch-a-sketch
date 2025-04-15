@@ -1,0 +1,28 @@
+body { 
+    display:flex; 
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    min-height: 100vh ; 
+    margin: 0 ; 
+    gap : 20px ; 
+    padding : 20px ; 
+}
+
+
+
+
+.main-block { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width : 300px ; 
+    aspect-ratio: 1/1 ;
+}
+
+.block {
+    background-color: aqua ;
+    position : relative ; 
+    border : 0.1px solid black ; 
+    box-sizing:border-box ; 
+}
