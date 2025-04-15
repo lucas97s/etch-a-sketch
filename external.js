@@ -63,13 +63,20 @@ blockElements.forEach( block => {
 
 // Using prompt to get the number of blocks 
 button.addEventListener("click", () => {
-    numberOfBlockPerSide = prompt("How many number of blocks per side do you want to sketch ?") ; 
+    numberOfBlockPerSide = parseInt(prompt("How many number of blocks per side do you want to sketch ?") ); 
+
+    if (numberOfBlockPerSide <= 0 ) {
+        numberOfBlockPerSide = 16 ; 
+    } else if ( numberOfBlockPerSide > 100 ) {
+        numberOfBlockPerSide = 100 ; 
+    };
+  
     numberOfBlocks = numberOfBlockPerSide*numberOfBlockPerSide ; 
     percentageToSet = ((100)/numberOfBlockPerSide) + "%" ; 
 
     while (blockContainer.hasChildNodes()) {
         blockContainer.removeChild(blockContainer.firstChild) ; 
-    }
+    };
 
 
     for (let i = 1 ; i <= numberOfBlocks; i++ ){
@@ -77,7 +84,7 @@ button.addEventListener("click", () => {
         div.setAttribute("class", "block") ;
         blockContainer.appendChild(div) ;
         console.log(i) ; 
-    }
+    };
     blockElements = document.querySelectorAll(".block") ; 
     console.log(blockElements);
 
@@ -85,7 +92,7 @@ button.addEventListener("click", () => {
         block.style.width = percentageToSet ; 
         block.style.aspectRatio = "1/1" ; 
         block.addEventListener("mouseenter", () => {
-            
+
             let opacity = parseFloat(window.getComputedStyle(block).opacity) ;
             let redValue = getRandominRange(1,256); 
             let greenValue = getRandominRange(1,256);
