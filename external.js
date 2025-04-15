@@ -63,8 +63,6 @@ button.addEventListener("click", () => {
         block.style.width = percentageToSet ; 
         block.style.aspectRatio = "1/1" ; 
     });
-
-    
 })
 
 
